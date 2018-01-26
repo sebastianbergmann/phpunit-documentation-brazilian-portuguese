@@ -102,7 +102,7 @@ de teste foram executados para limpar ambientes compartilhados.
 ##############
 
 As operações de cópia de segurança e restauração para variáveis globais podem ser completamente
-desabilitadas para todos os testes de uma classe de caso de teste como esta
+desabilitadas para todos os testes de uma classe de caso de teste como esta:
 
 .. code-block:: php
 
