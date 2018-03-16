@@ -209,68 +209,6 @@ Em :ref:`appendixes.configuration.test-listeners` você pode ver
 como configurar o PHPUnit para anexar seu ouvinte de teste para a
 execução do teste.
 
-.. _extending-phpunit.PHPUnit_Extensions_TestDecorator:
-
-Subclasse PHPUnit_Extensions_TestDecorator
-##########################################
-
-Você pode envolver casos de teste ou suítes de teste em uma subclasse de
-``PHPUnit_Extensions_TestDecorator`` e usar o padrão
-de projeto Decorator para realizar algumas ações antes e depois da
-execução do teste.
-
-O PHPUnit navega com um decorador de teste concreto:
-``PHPUnit_Extensions_RepeatedTest``. Ele é usado para executar um
-teste repetidamente e apenas o conta como bem-sucedido se todas as iterações forem
-bem-sucedidas.
-
-O :numref:`extending-phpunit.examples.RepeatedTest.php`
-mostra uma versão resumida do decorador de teste ``PHPUnit_Extensions_RepeatedTest``
-que ilustra como escrever seus próprios decoradores de teste.
-
-.. code-block:: php
-    :caption: O Decorador RepeatedTest
-    :name: extending-phpunit.examples.RepeatedTest.php
-
-    <?php
-    use PHPUnit\Framework\TestCase;
-
-    require_once 'PHPUnit/Extensions/TestDecorator.php';
-
-    class PHPUnit_Extensions_RepeatedTest extends PHPUnit_Extensions_TestDecorator
-    {
-        private $timesRepeat = 1;
-
-        public function __construct(PHPUnit_Framework_Test $test, $timesRepeat = 1)
-        {
-            parent::__construct($test);
-
-            if (is_integer($timesRepeat) &&
-                $timesRepeat >= 0) {
-                $this->timesRepeat = $timesRepeat;
-            }
-        }
-
-        public function count()
-        {
-            return $this->timesRepeat * $this->test->count();
-        }
-
-        public function run(PHPUnit_Framework_TestResult $result = null)
-        {
-            if ($result === null) {
-                $result = $this->createResult();
-            }
-
-            for ($i = 0; $i < $this->timesRepeat && !$result->shouldStop(); $i++) {
-                $this->test->run($result);
-            }
-
-            return $result;
-        }
-    }
-    ?>
-
 .. _extending-phpunit.PHPUnit_Framework_Test:
 
 Implementando PHPUnit_Framework_Test
