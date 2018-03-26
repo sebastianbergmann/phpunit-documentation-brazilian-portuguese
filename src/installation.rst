@@ -8,7 +8,7 @@ Instalando PHPUnit
 
 .. _installation.requirements:
 
-Requerimentos
+Requisitos
 #############
 
 PHPUnit 6.4 requer PHP 7; Usar a última versão do PHP é altamente
