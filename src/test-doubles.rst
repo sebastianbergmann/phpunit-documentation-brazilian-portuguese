@@ -120,7 +120,7 @@ exemplo. Isso leva a códigos mais legíveis e "fluentes".
 
 .. admonition:: Limitações: Métodos nomeados como "method"
 
-   O exemplo mostado acima só funciona quando a classe original não
+   O exemplo acima só funciona quando a classe original não
    declara um método nomeado "method".
 
    Se a classe original declara um método nomeado "method" então ``$stub->expects($this->any())->method('doSomething')->willReturn('foo');`` deve ser usado.
