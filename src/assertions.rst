@@ -2461,7 +2461,7 @@ podem ser usadas para expressar a mesma asserção como
 
 ``assertThat(mixed $value, PHPUnit_Framework_Constraint $constraint[, $message = ''])``
 
-Reporta um erro identificado pela ``$message`` se o``$value`` não combina com a ``$constraint``.
+Reporta um erro identificado pela ``$message`` se o ``$value`` não combina com a ``$constraint``.
 
 .. code-block:: php
     :caption: Utilização de assertThat()
