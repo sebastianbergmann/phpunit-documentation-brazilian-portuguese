@@ -1,3 +1,5 @@
+**The PHPUnit project is no longer involved with the translation of its documentation to other languages. This repository is now archived.**
+
 # Building the Documentation
 
 ## Requirements
